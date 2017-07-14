@@ -12,6 +12,7 @@ import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 /**
  * Created by Shreya on 7/14/2017.
@@ -26,16 +27,16 @@ public class StudentController
         return "index";
 
     }
-    @RequestMapping(value = "/index/{firstname}/{lastname}", method = RequestMethod.GET)
-    public ModelAndView hello(@PathVariable("firstname") String firstname,
-                              @PathVariable("lastname") String lastname) {
-        System.out.println(firstname);
-        System.out.println(lastname);
-        ModelAndView model = new ModelAndView();
-        model.setViewName("index");
-        model.addObject("msg1", firstname);
-        model.addObject("msg2", lastname);
-        return model;
-    }
+      @RequestMapping(value = "/index/{firstname}/{lastname}")
+     public ModelAndView hello(@PathVariable Map<String,String> requestMap) {
+         System.out.println(requestMap.get("firstname"));
+         System.out.println(requestMap.get("lastname"));
+         ModelAndView model = new ModelAndView();
+         model.setViewName("index");
+         model.addObject("msg1", requestMap.get("firstname"));
+         model.addObject("msg2", requestMap.get("lastname"));
+         return model;
+     }
+
 
 }
