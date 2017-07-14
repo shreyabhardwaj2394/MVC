@@ -13,6 +13,13 @@
 <body>
 
 ${message}
+
+<form  action="submitForm" method="post">
+    First Name<input name="fname" type="text">
+    Last Name<input name="lname" type="text">
+    <input type="submit" value="submit">
+</form>
+
 ${msg1}
 ${msg2}
 </body>
