@@ -2,6 +2,7 @@ package com.exercise;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,10 +19,23 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class StudentController
 {
-        @RequestMapping("/index.html")
-        @ResponseBody
-        public String action() {
-            return "Hello World";
-        }
+    @RequestMapping(value = "/index.html", method = RequestMethod.GET)
+    public String printWelcome(ModelMap model) {
+
+        model.addAttribute("message", "Hit this url  /index/{firstname}/{lastname}");
+        return "index";
+
+    }
+    @RequestMapping(value = "/index/{firstname}/{lastname}", method = RequestMethod.GET)
+    public ModelAndView hello(@PathVariable("firstname") String firstname,
+                              @PathVariable("lastname") String lastname) {
+        System.out.println(firstname);
+        System.out.println(lastname);
+        ModelAndView model = new ModelAndView();
+        model.setViewName("index");
+        model.addObject("msg1", firstname);
+        model.addObject("msg2", lastname);
+        return model;
+    }
 
 }

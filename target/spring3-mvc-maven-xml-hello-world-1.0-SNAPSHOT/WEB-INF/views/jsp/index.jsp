@@ -12,8 +12,9 @@
 </head>
 <body>
 
+  Hit this url  /index/{firstname}/{lastname}
 
-
-${message}
+${msg1}
+${msg2}
 </body>
 </html>
