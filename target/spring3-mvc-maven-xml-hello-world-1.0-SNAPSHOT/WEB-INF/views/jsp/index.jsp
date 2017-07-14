@@ -12,15 +12,15 @@
 </head>
 <body>
 
+
+Firstly do this to get the values which are required below :::
+
 ${message}
 
-<form  action="submitForm" method="post">
-    First Name<input name="fname" type="text">
-    Last Name<input name="lname" type="text">
-    <input type="submit" value="submit">
-</form>
 
-${msg1}
-${msg2}
+FirstName:
+${firstName}
+LastName:
+${lastName}
 </body>
 </html>

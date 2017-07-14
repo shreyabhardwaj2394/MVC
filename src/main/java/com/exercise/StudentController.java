@@ -17,20 +17,11 @@ import java.util.Map;
 @Controller
 public class StudentController
 {
-    @RequestMapping(value = "/index.html", method = RequestMethod.GET)
-    public String printWelcome() {
-        return "index";
-
-    }
-    @RequestMapping(value="/submitForm",method = RequestMethod.POST)
-    public ModelAndView submitForm(@RequestParam("fname") String fname, @RequestParam("lname") String lname){
-        System.out.println(fname);
-        System.out.println(lname);
-        ModelAndView model = new ModelAndView();
-        model.setViewName("index");
-        model.addObject("msg1", fname);
-        model.addObject("msg2", lname);
-        return model;
+    
+    @RequestMapping(value = "/user", method = RequestMethod.POST)
+    @ResponseBody
+    String submitForm(User user) {
+        return "FirstName " + user.getFirstName() + " LastName " + user.getLastName();
     }
 
 
