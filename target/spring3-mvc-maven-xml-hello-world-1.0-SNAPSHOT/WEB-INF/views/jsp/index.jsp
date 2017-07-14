@@ -11,16 +11,7 @@
     <title>JSP</title>
 </head>
 <body>
+${heading}
 
-
-Firstly do this to get the values which are required below :::
-
-${message}
-
-
-FirstName:
-${firstName}
-LastName:
-${lastName}
 </body>
 </html>

@@ -1,6 +1,7 @@
 package com.exercise;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,12 +18,15 @@ import java.util.Map;
 @Controller
 public class StudentController
 {
-    
-    @RequestMapping(value = "/user", method = RequestMethod.POST)
-    @ResponseBody
-    String submitForm(User user) {
-        return "FirstName " + user.getFirstName() + " LastName " + user.getLastName();
+    @ModelAttribute
+    void addingObject(Model model){
+        model.addAttribute("heading","Spring MVC Demo");
     }
 
+    @RequestMapping(value = "/index.html", method = RequestMethod.GET)
+    ModelAndView index() {
+        ModelAndView modelAndView = new ModelAndView("index");
+        return modelAndView;
+    }
 
 }
