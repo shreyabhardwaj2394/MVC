@@ -13,7 +13,6 @@
 <body>
 
 ${message}
-${msg1}
-${msg2}
+
 </body>
 </html>
