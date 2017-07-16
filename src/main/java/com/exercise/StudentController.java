@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Created by Shreya on 7/14/2017.
  */
+@RequestMapping("/")
 public class StudentController extends MultiActionController {
     @RequestMapping(value = "/index.html")
     public ModelAndView dummy() {
